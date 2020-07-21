@@ -3,7 +3,7 @@ package com.chaithdridi.dotcomgame;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+import java.util.Arrays;
 
 class DotCom{
 	  int[] location;
@@ -22,10 +22,20 @@ class DotCom{
 	      if (this.location[i] == guess){
 	    	  //add the element to the array
 	    	  catched.put(guess,1);
-	    	  //delete the element by shifting the elements 
-	    	  for(int j=i;j<this.location.length-1;j++) {
-	    		  this.location[j]=this.location[j+1];
+	    	  //delete the element by shifting the elements
+	    	  System.out.println(Arrays.toString(location));
+	    	  for(int j=i;j<this.location.length;j++) {
+	    		  //while the j is different from the last element then swap the elements
+	    		  	if(j!=(this.location.length-1)) {
+	    		  		this.location[j]=this.location[j+1];
+	    		  		//if equal the last element then he takes 0
+	    		  		//that last element will make sure we swap a zero with the last swap
+	    		  	}else {
+	    		  		this.location[j]=0;
+	    		  	}
+		    		  	      		  
 	    	  }
+	    	  System.out.println(Arrays.toString(location));
 	        numberOfHit++;
 	        result = "hit";
 	        break;
